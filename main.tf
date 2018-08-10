@@ -19,14 +19,17 @@ resource "tfe_organization" "organization" {
 resource "tfe_workspace" "workspace" {
 	name = "my-tfe"
 	organization = "${tfe_organization.organization.id}"
-  # vcs_repo = {
-  #   identifier = "thrashr888/my-tfe"
-  # }
+  vcs_repo = {
+    identifier = "thrashr888/my-tfe"
+    oauth_token_id = "ot-Dokh8KgR6rbXV9es"
+    branch = "master"
+  }
 }
 
 resource "tfe_variable" "variable" {
-	key = "TFE_TOKEN"
+	key = "TF_VAR_TFE_TOKEN"
 	value = "${var.TFE_TOKEN}"
-	category = "terraform"
+	category = "env"
   workspace_id = "${tfe_workspace.workspace.id}"
+  sensitive = true
 }
