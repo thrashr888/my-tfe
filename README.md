@@ -4,7 +4,7 @@ Builds my TFE environment. Depends on the [TFE Provider](https://github.com/terr
 
 # Running
 
-Requires the `TF_VAR_TFE_TOKEN` env var to be set to a valid [TFE Token](https://app.terraform.io/app/settings/tokens).
+Requires the `TF_VAR_TFE_TOKEN` env var to be set to a valid [TFE Token](https://app.terraform.io/app/settings/tokens). Follow the instructions to install that as a plug in. In the future it will be in the registry and not require installation.
 
     > terraform plan
     > terraform apply

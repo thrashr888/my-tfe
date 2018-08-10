@@ -20,7 +20,7 @@ resource "tfe_workspace" "workspace" {
 	name = "my-tfe"
 	organization = "${tfe_organization.organization.id}"
   vcs_repo = {
-    identifier = "thrashr888/my-tfe"
+    identifier = "thrashr888/my-tfe" # run thyself!
     oauth_token_id = "ot-Dokh8KgR6rbXV9es"
     branch = "master"
   }
