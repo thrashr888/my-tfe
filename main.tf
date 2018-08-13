@@ -11,14 +11,14 @@ provider "tfe" {
 }
 
 resource "tfe_organization" "organization" {
- 	name = "pthrasher-main"
+  name = "pthrasher-main"
   email = "pthrasher@hashicorp.com"
 }
 
 
 resource "tfe_workspace" "workspace" {
-	name = "my-tfe"
-	organization = "${tfe_organization.organization.id}"
+  name = "my-tfe"
+  organization = "${tfe_organization.organization.id}"
   vcs_repo = {
     identifier = "thrashr888/my-tfe" # run thyself!
     oauth_token_id = "ot-Dokh8KgR6rbXV9es"
@@ -27,9 +27,9 @@ resource "tfe_workspace" "workspace" {
 }
 
 resource "tfe_variable" "variable" {
-	key = "TF_VAR_TFE_TOKEN"
-	value = "${var.TFE_TOKEN}"
-	category = "env"
+  key = "TF_VAR_TFE_TOKEN"
+  value = "${var.TFE_TOKEN}"
+  category = "env"
   workspace_id = "${tfe_workspace.workspace.id}"
   sensitive = true
 }
