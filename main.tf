@@ -30,30 +30,30 @@ variable "oauth_token_id" {
 
 # Configure the Terraform Enterprise Provider
 provider "tfe" {
-  hostname = "${var.hostname}"
-  token    = "${var.TFE_TOKEN}"
+  hostname = var.hostname
+  token    = var.TFE_TOKEN
 }
 
 resource "tfe_organization" "organization" {
-  name  = "${var.organization_name}"
-  email = "${var.organization_email}"
+  name  = var.organization_name
+  email = var.organization_email
 }
 
 
 resource "tfe_workspace" "workspace" {
-  name         = "${var.workspace_name}"
-  organization = "${tfe_organization.organization.id}"
+  name         = var.workspace_name
+  organization = tfe_organization.organization.id
   vcs_repo = {
-    identifier     = "${var.repo_identifier}"
-    oauth_token_id = "${var.oauth_token_id}"
+    identifier     = var.repo_identifier
+    oauth_token_id = var.oauth_token_id
     branch         = "master"
   }
 }
 
 resource "tfe_variable" "variable" {
   key          = "TF_VAR_TFE_TOKEN"
-  value        = "${var.TFE_TOKEN}"
+  value        = var.TFE_TOKEN
   category     = "env"
-  workspace_id = "${tfe_workspace.workspace.id}"
+  workspace_id = tfe_workspace.workspace.id
   sensitive    = true
 }
