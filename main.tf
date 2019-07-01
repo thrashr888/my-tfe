@@ -43,7 +43,7 @@ resource "tfe_organization" "organization" {
 resource "tfe_workspace" "workspace" {
   name         = var.workspace_name
   organization = tfe_organization.organization.id
-  vcs_repo = {
+  vcs_repo {
     identifier     = var.repo_identifier
     oauth_token_id = var.oauth_token_id
     branch         = "master"
