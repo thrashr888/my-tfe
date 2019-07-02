@@ -99,6 +99,18 @@ module "tfe-remote-backend-example" {
   oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
 }
 
+module "terraform-demo" {
+  source = "./workspace"
+  repo   = "thrashr888/terraform-demo"
+  name   = "terraform-demo"
+
+  TFE_TOKEN             = var.TFE_TOKEN
+  AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
+  organization          = tfe_organization.organization.id
+  oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
+}
+
 module "thrasher-dev" {
   source = "./workspace"
   repo   = "thrashr888/thrasher.dev"
