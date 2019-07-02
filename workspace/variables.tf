@@ -25,6 +25,12 @@ variable "branch" {
   description = "The branch for this repo"
 }
 
+variable "working_directory" {
+  type        = string
+  default     = ""
+  description = " The directory to execute Terraform commands in. This defaults to the root of the configuration directory, but can be set to a subdirectory if you use a shared repository for multiple Terraform configurations."
+}
+
 variable "oauth_token_id" {
   type        = string
   description = "The id from the `tfe_oauth_client`"

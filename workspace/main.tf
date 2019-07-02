@@ -1,9 +1,10 @@
 
 resource "tfe_workspace" "workspace" {
-  organization   = var.organization
-  name           = var.name
-  auto_apply     = var.auto_apply
-  queue_all_runs = true
+  organization      = var.organization
+  name              = var.name
+  working_directory = var.working_directory
+  auto_apply        = var.auto_apply
+  queue_all_runs    = true
 
   vcs_repo {
     identifier     = var.repo

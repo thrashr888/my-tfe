@@ -136,9 +136,10 @@ module "the-reg" {
 }
 
 module "home-run" {
-  source = "./workspace"
-  repo   = "thrashr888/home-run"
-  name   = "home-run"
+  source            = "./workspace"
+  repo              = "thrashr888/home-run"
+  name              = "home-run"
+  working_directory = "terraform"
 
   TFE_TOKEN             = var.TFE_TOKEN
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
