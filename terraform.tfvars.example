@@ -1,0 +1,7 @@
+hostname = "app.terraform.io"
+oauth_token = ""
+organization_name = "hashicorp_test"
+organization_email = "test@hashicorp.com"
+AWS_ACCESS_KEY_ID = ""
+AWS_SECRET_ACCESS_KEY = ""
+TFE_TOKEN = ""
