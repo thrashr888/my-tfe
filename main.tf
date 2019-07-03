@@ -17,3 +17,32 @@ resource "tfe_oauth_client" "oauth" {
   oauth_token      = var.oauth_token
   service_provider = "github"
 }
+
+resource "tfe_policy_set" "versioned" {
+  name          = "sentinel-playground"
+  description   = "A collection of policies"
+  organization  = tfe_organization.organization.id
+  global        = true
+
+  vcs_repo {
+    identifier         = "thrashr888/sentinel-playground"
+    ingress_submodules = false
+    oauth_token_id     = tfe_oauth_client.oauth.oauth_token_id
+  }
+}
+
+resource "tfe_sentinel_policy" "always-passes" {
+  name         = "always-passes"
+  description  = "This policy always passes"
+  organization = tfe_organization.organization.id
+  policy       = "main = rule { true }"
+  enforce_mode = "hard-mandatory"
+}
+
+resource "tfe_policy_set" "legacy" {
+  name         = "legacy-policy-set"
+  description  = "A legacy policy set"
+  organization = tfe_organization.organization.id
+  global       = true
+  policy_ids   = [tfe_sentinel_policy.always-passes.id]
+}
