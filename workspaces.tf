@@ -87,6 +87,19 @@ module "terraform-aws-example" {
   oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
 }
 
+module "terraform-aws-example-single-instance" {
+  source = "./workspace"
+  repo   = "thrashr888/terraform-aws-example"
+  name   = "terraform-aws-example-single-instance"
+  working_directory = "single-instance"
+
+  TFE_TOKEN             = var.TFE_TOKEN
+  AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
+  organization          = tfe_organization.organization.id
+  oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
+}
+
 module "tfe-remote-backend-example" {
   source = "./workspace"
   repo   = "thrashr888/tfe-remote-backend-example"

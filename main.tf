@@ -39,10 +39,25 @@ resource "tfe_sentinel_policy" "always-passes" {
   enforce_mode = "hard-mandatory"
 }
 
+resource "tfe_sentinel_policy" "always-fails" {
+  name         = "always-fails"
+  description  = "This policy always fails"
+  organization = tfe_organization.organization.id
+  policy       = "main = rule { false }"
+  enforce_mode = "advisory"
+}
+
 resource "tfe_policy_set" "legacy" {
   name         = "legacy-policy-set"
   description  = "A legacy policy set"
   organization = tfe_organization.organization.id
   global       = true
   policy_ids   = [tfe_sentinel_policy.always-passes.id]
+}
+
+resource "tfe_policy_set" "empty" {
+  name         = "empty-policy-set"
+  description  = "An empty policy set"
+  organization = tfe_organization.organization.id
+  global       = true
 }
