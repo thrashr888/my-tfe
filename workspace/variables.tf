@@ -39,14 +39,23 @@ variable "oauth_token_id" {
 variable "TFE_TOKEN" {
   type        = string
   description = "Your TFE user auth token"
+  default = ""
 }
 
 variable "AWS_ACCESS_KEY_ID" {
   type        = string
   description = "For AWS auth, AWS_ACCESS_KEY_ID"
+  default = ""
 }
 
 variable "AWS_SECRET_ACCESS_KEY" {
   type        = string
   description = "For AWS auth, AWS_SECRET_ACCESS_KEY"
+  default = ""
+}
+
+variable "GCP_CREDENTIALS" {
+  type        = string
+  description = "Your whole JSON credentials contents"
+  default = ""
 }

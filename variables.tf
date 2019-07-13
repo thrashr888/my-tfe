@@ -33,3 +33,8 @@ variable "AWS_SECRET_ACCESS_KEY" {
   type        = string
   description = "For AWS auth, AWS_SECRET_ACCESS_KEY"
 }
+
+variable "GCP_CREDENTIALS" {
+  type        = string
+  description = "Your whole JSON credentials contents"
+}

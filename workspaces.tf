@@ -5,8 +5,6 @@ module "my-tfe" {
   name   = "my-tfe"
 
   TFE_TOKEN             = var.TFE_TOKEN
-  AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
-  AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   organization          = tfe_organization.organization.id
   oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
 }
@@ -17,9 +15,6 @@ module "tf-random" {
   name       = "tf-random"
   auto_apply = true
 
-  TFE_TOKEN             = var.TFE_TOKEN
-  AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
-  AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   organization          = tfe_organization.organization.id
   oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
 }
@@ -29,7 +24,6 @@ module "cool-website" {
   repo   = "thrashr888/cool-website"
   name   = "cool-website"
 
-  TFE_TOKEN             = var.TFE_TOKEN
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   organization          = tfe_organization.organization.id
@@ -55,9 +49,6 @@ module "terraform-fast" {
   name       = "terraform-fast"
   auto_apply = true
 
-  TFE_TOKEN             = var.TFE_TOKEN
-  AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
-  AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   organization          = tfe_organization.organization.id
   oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
 }
@@ -68,9 +59,6 @@ module "terraform-slow" {
   name       = "terraform-slow"
   auto_apply = true
 
-  TFE_TOKEN             = var.TFE_TOKEN
-  AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
-  AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   organization          = tfe_organization.organization.id
   oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
 }
@@ -80,7 +68,6 @@ module "terraform-aws-example" {
   repo   = "thrashr888/terraform-aws-example"
   name   = "terraform-aws-example"
 
-  TFE_TOKEN             = var.TFE_TOKEN
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   organization          = tfe_organization.organization.id
@@ -93,9 +80,18 @@ module "terraform-aws-example-single-instance" {
   name   = "terraform-aws-example-single-instance"
   working_directory = "single-instance"
 
-  TFE_TOKEN             = var.TFE_TOKEN
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
+  organization          = tfe_organization.organization.id
+  oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
+}
+
+module "terraform-gcp-example" {
+  source = "./workspace"
+  repo   = "thrashr888/terraform-gcp-example"
+  name   = "terraform-gcp-example"
+
+  GCP_CREDENTIALS       = var.GCP_CREDENTIALS
   organization          = tfe_organization.organization.id
   oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
 }
@@ -129,7 +125,6 @@ module "thrasher-dev" {
   repo   = "thrashr888/thrasher.dev"
   name   = "thrasher-dev"
 
-  TFE_TOKEN             = var.TFE_TOKEN
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   organization          = tfe_organization.organization.id
@@ -141,7 +136,6 @@ module "the-reg" {
   repo   = "thrashr888/the-reg"
   name   = "the-reg"
 
-  TFE_TOKEN             = var.TFE_TOKEN
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   organization          = tfe_organization.organization.id
@@ -154,7 +148,6 @@ module "home-run" {
   name              = "home-run"
   working_directory = "terraform"
 
-  TFE_TOKEN             = var.TFE_TOKEN
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   organization          = tfe_organization.organization.id

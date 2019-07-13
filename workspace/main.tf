@@ -36,3 +36,11 @@ resource "tfe_variable" "AWS_SECRET_ACCESS_KEY" {
   workspace_id = tfe_workspace.workspace.id
   sensitive    = true
 }
+
+resource "tfe_variable" "GOOGLE_CREDENTIALS" {
+  key          = "GOOGLE_CREDENTIALS"
+  value        = var.GCP_CREDENTIALS
+  category     = "env"
+  workspace_id = tfe_workspace.workspace.id
+  sensitive    = true
+}

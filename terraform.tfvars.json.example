@@ -1,0 +1,10 @@
+{
+  "hostname": "app.terraform.io",
+  "oauth_token": "TOKEN",
+  "organization_name": "hashicorp_test",
+  "organization_email": "test@hashicorp.com",
+  "AWS_ACCESS_KEY_ID": "KEY",
+  "AWS_SECRET_ACCESS_KEY": "SECRET_KEY",
+  "TFE_TOKEN": "TOKEN",
+  "GCP_CREDENTIALS": "{\"type\":\"service_account\",\"project_id\":\"\",\"private_key_id\":\"\",\"private_key\":\"-----BEGIN PRIVATE KEY-----\\nYOUR KEY HERE\\n-----END PRIVATE KEY-----\\n\",\"client_email\":\"\",\"client_id\":\"\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"token_uri\":\"https://oauth2.googleapis.com/token\",\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"client_x509_cert_url\":\"\"  }"
+}
