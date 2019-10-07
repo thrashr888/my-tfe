@@ -18,8 +18,8 @@ module "tf-random" {
   name       = "tf-random"
   auto_apply = true
 
-  organization          = tfe_organization.organization.id
-  oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
+  organization   = tfe_organization.organization.id
+  oauth_token_id = tfe_oauth_client.oauth.oauth_token_id
 }
 
 module "cool-website" {
@@ -52,8 +52,8 @@ module "terraform-fast" {
   name       = "terraform-fast"
   auto_apply = true
 
-  organization          = tfe_organization.organization.id
-  oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
+  organization   = tfe_organization.organization.id
+  oauth_token_id = tfe_oauth_client.oauth.oauth_token_id
 }
 
 module "terraform-slow" {
@@ -62,8 +62,8 @@ module "terraform-slow" {
   name       = "terraform-slow"
   auto_apply = true
 
-  organization          = tfe_organization.organization.id
-  oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
+  organization   = tfe_organization.organization.id
+  oauth_token_id = tfe_oauth_client.oauth.oauth_token_id
 }
 
 module "terraform-aws-example" {
@@ -78,9 +78,9 @@ module "terraform-aws-example" {
 }
 
 module "terraform-aws-example-single-instance" {
-  source = "./workspace"
-  repo   = "thrashr888/terraform-aws-example"
-  name   = "terraform-aws-example-single-instance"
+  source            = "./workspace"
+  repo              = "thrashr888/terraform-aws-example"
+  name              = "terraform-aws-example-single-instance"
   working_directory = "single-instance"
 
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
@@ -94,9 +94,22 @@ module "terraform-gcp-example" {
   repo   = "thrashr888/terraform-gcp-example"
   name   = "terraform-gcp-example"
 
-  GCP_CREDENTIALS       = var.GCP_CREDENTIALS
-  organization          = tfe_organization.organization.id
-  oauth_token_id        = tfe_oauth_client.oauth.oauth_token_id
+  GCP_CREDENTIALS = var.GCP_CREDENTIALS
+  organization    = tfe_organization.organization.id
+  oauth_token_id  = tfe_oauth_client.oauth.oauth_token_id
+}
+
+module "terraform-azure-example" {
+  source = "./azure-workspace"
+  repo   = "thrashr888/terraform-azure-example"
+  name   = "terraform-azure-example"
+
+  ARM_CLIENT_ID       = var.ARM_CLIENT_ID
+  ARM_CLIENT_SECRET   = var.ARM_CLIENT_SECRET
+  ARM_SUBSCRIPTION_ID = var.ARM_SUBSCRIPTION_ID
+  ARM_TENANT_ID       = var.ARM_TENANT_ID
+  organization        = tfe_organization.organization.id
+  oauth_token_id      = tfe_oauth_client.oauth.oauth_token_id
 }
 
 module "tfe-remote-backend-example" {

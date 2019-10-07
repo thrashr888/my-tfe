@@ -19,10 +19,10 @@ resource "tfe_oauth_client" "oauth" {
 }
 
 resource "tfe_policy_set" "versioned" {
-  name          = "sentinel-playground"
-  description   = "A collection of policies"
-  organization  = tfe_organization.organization.id
-  global        = true
+  name         = "sentinel-playground"
+  description  = "A collection of policies"
+  organization = tfe_organization.organization.id
+  global       = true
 
   vcs_repo {
     identifier         = "thrashr888/sentinel-playground"
